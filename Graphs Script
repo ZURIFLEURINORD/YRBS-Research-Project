@@ -1,0 +1,425 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sb
+import numpy as np
+data = pd.read_excel(r"E:\B104_ProjectData_Group7.xlsx")
+print('Hello there, this is Zuri Fleurinord and Leandro Hernandez Research Project')
+print()
+print('1 = Pie chart - What are males and females goals for their body? ')
+print()
+print('2 = First Bar Graph - how many days Males and Females worked out?')
+print()
+print('3 = Histogram - Amount of participants and age')
+print()
+print('4 = Heatmap - Correlation')
+print()
+print('5 = Second Bar graph - How many days people worked out based on weight goals')
+print('----------------------------------------------------------')
+user_input = False
+while user_input == False:
+ 
+try:
+ 
+user_input = eval(input('Enter the number for which graph would you like to see? '))
+ 
+if user_input == 1:
+ 
+print('Pie chart - What are the participants goals for their body?')
+ 
+#General population
+ 
+q68 = 1
+ 
+data1 = data ['q68'][data['q68']==q68].count()
+ 
+q68 = 2
+ 
+data2 = data ['q68'][data['q68']==q68].count()
+ 
+q68 = 3
+ 
+data3 = data ['q68'][data['q68']==q68].count()
+ 
+q68 = 4 
+ 
+data4 = data ['q68'][data['q68']==q68].count()
+ 
+results = np.array([data1, data2, data3, data4])
+ 
+labels = ['Lose weight', 'gain weight', 'stay the same', 'not trying to do anything']
+ 
+colorgraph = ['purple', 'orange', 'green', 'yellow']
+ 
+plt.pie(results, labels = labels, autopct = ' %.0f%%')
+ 
+plt.title ("What do the people want to do with their weight?")
+ 
+plt.figure(figsize = (10, 6))
+ 
+plt.show()
+ 
+#Piechart on what females want to do with their weight
+ 
+q68 = 1
+ 
+data1 = data [(data['gender']==1) & (data['q68']==1)]
+ 
+res = (len(data1))
+ 
+data2 = data [(data['gender']==1) & (data['q68']==2)]
+ 
+res2 = (len(data2))
+ 
+data3 = data [(data['gender']==1) & (data['q68']==3)]
+ 
+res3 = (len(data3))
+ 
+data4 = data [(data['gender']==1) & (data['q68']==4)]
+ 
+res4 = (len(data4))
+ 
+results = np.array([res, res2, res3, res4])
+ 
+mylabels = ['Lose weight', 'gain weight', 'stay the same', 'not trying to do anything']
+ 
+mycolors = ['blue', 'cyan', 'lightblue', 'grey']
+ 
+plt.pie(results, labels = mylabels, colors = mycolors, autopct = ' %.0f%%')
+ 
+plt.title ("What do Females want to do with their weight?")
+ 
+plt.axis('equal')
+ 
+plt.figure(figsize = (10, 6))
+ 
+plt.show()
+ 
+#PieChart for what males want to do with their weight
+ 
+q68 = 1
+ 
+data1 = data [(data['gender']==2) & (data['q68']==1)]
+ 
+res = (len(data1))
+ 
+data2 = data [(data['gender']==2) & (data['q68']==2)]
+ 
+res2 = (len(data2))
+ 
+data3 = data [(data['gender']==2) & (data['q68']==3)]
+ 
+res3 = (len(data3))
+ 
+data4 = data [(data['gender']==2) & (data['q68']==4)]
+ 
+res4 = (len(data4))
+ 
+results = np.array([res, res2, res3, res4])
+ 
+labels = ['Lose weight', 'gain weight', 'stay the same', 'not trying to do anything']
+ 
+mycolors = ['blue', 'cyan', 'lightblue', 'purple']
+ 
+plt.pie(results, labels = mylabels, colors = mycolors, autopct = ' %.0f%%')
+
+ 
+plt.title ("What do Males want to do with their weight?")
+ 
+plt.axis('equal')
+ 
+plt.figure(figsize = (10, 6))
+ 
+plt.show()
+ 
+#------------------------------------------------------------------------------- # 
+ 
+elif user_input == 2:
+ 
+print('Bar graph - Number of Participants ')
+ 
+data1_a = data [(data['q78']==1) & (data['gender']==1)]
+ 
+res_a = (len(data1_a))
+ 
+data2_a = data [(data['q78']==1) & (data['gender']==2)]
+ 
+res2_a = (len(data2_a))
+ 
+data1_b = data [(data['q78']==2) & (data['gender']==1)]
+ 
+res_b = (len(data1_b))
+ 
+data2_b = data [(data['q78']==2) & (data['gender']==2)]
+ 
+res2_b = (len(data1_b))
+ 
+data1_c = data [(data['q78']==3) & (data['gender']==1)]
+ 
+res_c = (len(data1_c))
+ 
+data2_c = data [(data['q78']==3) & (data['gender']==2)]
+ 
+res2_c = (len(data2_c))
+ 
+data1_d = data [(data['q78']==4) & (data['gender']==1)]
+ 
+res_d = (len(data1_d))
+ 
+data2_d = data [(data['q78']==4) & (data['gender']==2)]
+ 
+res2_d = (len(data2_d))
+ 
+data1_e = data [(data['q78']==5) & (data['gender']==1)]
+ 
+res_e = (len(data1_e))
+ 
+data2_e = data [(data['q78']==5) & (data['gender']==2)]
+ 
+res2_e = (len(data2_e))
+ 
+data1_f = data [(data['q78']==6) & (data['gender']==1)]
+ 
+res_f = (len(data1_f))
+ 
+data2_f = data [(data['q78']==6) & (data['gender']==2)]
+ 
+res2_f = (len(data2_f))
+ 
+data1_g = data [(data['q78']==7) & (data['gender']==1)]
+ 
+res_g = (len(data1_g))
+ 
+data2_g = data [(data['q78']==7) & (data['gender']==2)]
+ 
+res2_g = (len(data2_g))
+ 
+data1_h = data [(data['q78']==8) & (data['gender']==1)]
+ 
+res_h = (len(data1_h))
+ 
+data2_h = data [(data['q78']==8) & (data['gender']==2)]
+ 
+res2_h = (len(data2_h))
+ 
+backgroundcolor = 'lightblue'
+ 
+barWidth = 0.095
+ 
+fig = plt.subplots(figsize =(22,10), facecolor = backgroundcolor)
+ 
+# ax.set_facecolor(backgroundcolor)
+ 
+first_bar = [res_a, res2_a]
+ 
+second_bar = [res_b, res2_b] 
+ 
+third_bar = [res_c, res2_c]
+ 
+fourth_bar = [res_d, res2_d]
+ 
+fifth_bar = [res_e, res2_e]
+ 
+sixth_bar = [res_f, res2_f]
+ 
+seventh_bar = [res_g, res2_g]
+ 
+eight_bar = [res_h, res2_h]
+ 
+results = np.arange(len(first_bar))
+ 
+results1 = [x + barWidth for x in results]
+ 
+result2 = [x + barWidth for x in results1]
+ 
+result3 = [x + barWidth for x in result2]
+ 
+result4 = [x + barWidth for x in result3]
+ 
+result5 = [x + barWidth for x in result4]
+ 
+result6 = [x + barWidth for x in result5]
+ 
+result7 = [x + barWidth for x in result6]
+ 
+result8 = [x + barWidth for x in result7]
+ 
+ 
+first = plt.bar(results, first_bar, color = 'grey', width = barWidth, edgecolor ='black')
+ 
+second = plt.bar(results1, second_bar, color = 'blue', width = barWidth, edgecolor = 'black')
+ 
+third = plt.bar(result2, third_bar, color = 'darkblue', width = barWidth, edgecolor = 'black')
+ 
+fourth = plt.bar(result3, fourth_bar, color = 'purple', width = barWidth, edgecolor = 'black')
+ 
+fifth = plt.bar(result4, fifth_bar, color = 'darkgrey', width = barWidth, edgecolor = 'black')
+ 
+sixth = plt.bar(result5, sixth_bar, color = 'cyan', width = barWidth, edgecolor = 'black')
+ 
+seventh = plt.bar(result6, seventh_bar, color = 'indigo', width = barWidth, edgecolor = 'black')
+
+ 
+eight = plt.bar(result7, eight_bar, color = 'lightsteelblue', width = barWidth, edgecolor = 'black')
+ 
+plt.bar_label(first, label = first_bar, fontsize = 31, label_type = "edge")
+ 
+plt.bar_label(second, label = second_bar, fontsize = 31, label_type = "edge")
+ 
+plt.bar_label(third, label = third_bar, fontsize = 31,label_type = "edge")
+ 
+plt.bar_label(fourth, label = fourth_bar, fontsize = 31, label_type = "edge")
+ 
+plt.bar_label(fifth, label = fifth_bar, fontsize = 31, label_type = "edge")
+ 
+plt.bar_label(sixth, label = sixth_bar, fontsize = 31,label_type = "edge")
+ 
+plt.bar_label(seventh, label = seventh_bar, fontsize =31,label_type = "edge")
+ 
+plt.bar_label(eight, label = eight_bar, fontsize = 31, label_type = "edge")
+ 
+# plt.xticks((0.00, 0.25, 0.50, 0.75, 1.00, 1.25, 1.50, 1.75))
+ 
+plt.xlabel('1 day 2days 3days 4days 5days 6days 7days 8days Female vs Male 1days 2days 3days 4days 5days 6days 7days 
+8days', fontweight ='bold', fontsize = 16)
+ 
+plt.xticks(fontweight = 'bold', color = 'blue', fontsize = 8) 
+ 
+plt.ylabel ("Amount of participants", fontweight ='bold', fontsize = 25)
+ 
+plt.xticks (fontweight = 'bold', color ='blue', fontsize = 20)
+ 
+plt.yticks (fontweight = 'bold', color ='blue')
+ 
+plt.title ("Days worked out, Male vs Female", fontweight = 'bold', fontsize = 35)
+ 
+plt.legend()
+ 
+plt.grid()
+ 
+plt.show()
+ 
+ 
+#---------------------------------------------------------------------------------# 
+ 
+elif user_input == 3:
+ 
+print(' Histogram')
+ 
+ 
+ 
+backgroundcolor = 'lightblue'
+ 
+color_bars = 'blue'
+ 
+fig, ax = plt.subplots (1, figsize = (15,7), facecolor=backgroundcolor)
+ 
+ax.set_facecolor(backgroundcolor)
+ 
+plt.hist(data.age, color = color_bars, edgecolor = 'black')
+ 
+plt.xlabel ("Diffrent ages", color = 'grey', fontweight = 'bold', fontsize = 16)
+ 
+plt.ylabel ("Number of participants", color = 'grey', fontweight = 'bold', fontsize = 16)
+ 
+x = [12, 13, 14, 15, 16, 17, 18]
+ 
+y = [12, 13, 14, 15, 16, 17, 18]
+ 
+default_x_ticks = range(len(x))
+ 
+plt.plot(default_x_ticks, y)
+ 
+plt.xticks(default_x_ticks, x)
+ 
+plt.title('Age and participants', color = 'purple', fontweight = 'bold', fontsize = 20)
+ 
+plt.grid()
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+#---------------------------------------------------------------------------------# 
+ 
+elif user_input == 4:
+ 
+print('Heatmap - Correlation')
+ 
+corr = data.corr()
+ 
+sb.heatmap(corr, cmap="Blues", annot=True)
+ 
+ 
+ 
+#---------------------------------------------------------------------------------#
+ 
+elif user_input == 5:
+ 
+print('Second Bar Graph') #Info taken from piecharts
+ 
+ 
+X = 8
+ 
+ind = np.arange(X) 
+ 
+width = 0.20
+ 
+ 
+lose = [877, 394, 544, 675, 567, 644, 314, 868]
+ 
+lose_weight = plt.bar(ind, lose, width, color = 'b')
+ 
+ 
+gain = [312, 135, 169, 195, 176, 250, 150, 656] 
+ 
+gain_weight = plt.bar(ind+width, gain, width, color='grey')
+ 
+ 
+same = [214, 91, 123, 178, 151, 249, 141, 445]
+ 
+stay_same = plt.bar(ind+width*2, same, width, color = 'lightblue')
+ 
+ 
+plt.xlabel("Days worked out")
+ 
+plt.ylabel('Number of participants')
+ 
+plt.title("Days worked out based of goals")
+ 
+ 
+plt.xticks(ind+width,['0 days', '1 day', '2 days', '3 days', '4 days', '5 days', '6 days', '7 days'])
+
+ 
+plt.legend( (lose_weight, gain_weight, stay_same), ('Lose weight', 'Gain weight', 'Stay the same') )
+ 
+plt.show()
+ 
+ 
+#--------------------------------------------------------------------------------------# 
+ 
+else:
+ 
+print('Invalid Input.Try Again')
+ 
+user_input = False
+ 
+except NameError:
+ 
+print('Invalid Input.Try Again')
+ 
+user_input = False
+ 
+except SyntaxError:
+ 
+print('Invalid Input.Try Again')
+ 
+user_input = False
+ 
+print()
+ 
+ 
+# print('If you want to see another graph renter a number? ')
+ 
+# user_input = False
